@@ -1,0 +1,8 @@
+com\student\StudentRecordApplication.class
+com\student\entity\StudentSubjectsEntity.class
+com\student\service\StudentRecordService.class
+com\student\controller\StudentRecordController.class
+com\student\entity\StudentRecordEntity.class
+com\student\serviceImpl\StudentRecordServiceImpl.class
+com\student\config\AppConstants.class
+com\student\repository\StudentRecordRepository.class

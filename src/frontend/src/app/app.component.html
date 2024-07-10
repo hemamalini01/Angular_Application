@@ -1,0 +1,55 @@
+<mat-card style="align-items: center;
+padding: 26px 123px;
+">
+  <div class="container">
+    <div class="container-fluid">
+      <form [formGroup]="studentForm">
+        <div class="row">
+          <div class="col-lg-3">
+            <mat-form-field>
+              <input matInput placeholder="Name" formControlName="name"/>
+            </mat-form-field>
+          </div>
+          <div class="col-lg-3">
+            <mat-form-field>
+              <mat-select placeholder="Course" formControlName="course">
+                <mat-option *ngFor="let studentCourse of course" [value]="studentCourse">{{studentCourse}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div  formArrayName="studentSubjects">
+        <div class="row" *ngFor="let subjectName of this.studentForm.controls.studentSubjects.controls; let i = index">
+            <div class="col-lg-8" [formGroupName]="i" >
+              <mat-form-field>
+                <input matInput type="text" placeholder="Subject" formControlName="subjectName"/>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-4" >
+                <button type="button" class="btn btn-success" (click)="addBox()"><i class="fa fa-plus"></i></button>
+                &nbsp; &nbsp;
+                <button type="button" class="btn btn-danger" (click)="removeBox(i)"><i class="fa fa-times"></i></button>          
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <button mat-raised-button color="primary" (click)="addStudent()">Add Student</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</mat-card>
+<br /><br />
+
+<div class="container">
+  <div class="container-fluid">
+    <div class="col-lg-12">
+    <mat-card>
+      <app-student-list></app-student-list>
+    </mat-card>
+  </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
